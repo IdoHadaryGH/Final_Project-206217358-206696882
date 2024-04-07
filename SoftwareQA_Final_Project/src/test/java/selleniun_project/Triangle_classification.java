@@ -166,4 +166,53 @@ public class Triangle_classification {
 		browser.close();
 	}
 	
+	@Test
+	public void FP_Q1_TC10_side1NotANumber() {
+		textBox = browser.findElement(By.id("side1"));
+		textBox.sendKeys("@");
+		textBox = browser.findElement(By.id("side2"));
+		textBox.sendKeys("5");
+		textBox = browser.findElement(By.id("side3"));
+		textBox.sendKeys("4");
+		browser.findElement(By.id("identify-triangle-action")).click();
+		
+		String expected = "Error: Side 1 is not a Number";
+		String actual = browser.findElement(By.className("answer")).getText();
+		assertEquals(expected, actual);
+		browser.close();
+	}
+	
+	@Test
+	public void FP_Q1_TC11_side2NotANumber() {
+		textBox = browser.findElement(By.id("side1"));
+		textBox.sendKeys("2");
+		textBox = browser.findElement(By.id("side2"));
+		textBox.sendKeys("H");
+		textBox = browser.findElement(By.id("side3"));
+		textBox.sendKeys("3");
+		browser.findElement(By.id("identify-triangle-action")).click();
+		
+		String expected = "Error: Side 2 is not a Number";
+		String actual = browser.findElement(By.className("answer")).getText();
+		assertEquals(expected, actual);
+		browser.close();
+	}
+	
+	@Test
+	public void FP_Q1_TC12_side3NotANumber() {
+		textBox = browser.findElement(By.id("side1"));
+		textBox.sendKeys("7");
+		textBox = browser.findElement(By.id("side2"));
+		textBox.sendKeys("9");
+		textBox = browser.findElement(By.id("side3"));
+		textBox.sendKeys("%");
+		browser.findElement(By.id("identify-triangle-action")).click();
+		
+		String expected = "Error: Side 3 is not a Number";
+		String actual = browser.findElement(By.className("answer")).getText();
+		assertEquals(expected, actual);
+		browser.close();
+	}
+	
+	
 }
